@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
     res.send({hello: "world"});
 });
 app.use('/api/auth', routes.auth);
+app.use('/api/polls', routes.poll);
 
 app.use(handler.notFound);
 app.use(handler.errors);

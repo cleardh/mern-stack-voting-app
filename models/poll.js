@@ -24,7 +24,7 @@
 const mongoose = require('mongoose');
 
 const optionsSchema = new mongoose.Schema({
-    options: String,
+    option: String,
     votes: {
         type: Number,
         default: 0
@@ -36,11 +36,9 @@ const pollSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    question: {
-        type: String,
-        options: [optionsSchema],
-        voted: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
-    },
+    question: String,
+    options: [optionsSchema],
+    voted: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
     created: {
         type: Date,
         default: Date.now
